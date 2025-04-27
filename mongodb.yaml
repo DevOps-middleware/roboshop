@@ -26,10 +26,10 @@
        replace: 0.0.0.0
 
     - name: restarting the mongod servrice
-      ansible.builtin.yum:
+      ansible.builtin.service:
         name: mongod
         state: restarted
-        
+
 
 
 
