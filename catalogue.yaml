@@ -49,3 +49,8 @@
       ansible.builtin.command: npm install
       args:
         chdir: /app 
+
+    - name: create a symtectl service:
+      ansible.builtin.copy:
+        src: catalogue.service
+        dest: /etc/systemd/system
