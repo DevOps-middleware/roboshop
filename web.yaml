@@ -23,4 +23,10 @@
       ansible.builtin.get_url:
         url: https://roboshop-builds.s3.amazonaws.com/web.zip
         dest: /tmp
-        
+
+    - name: extract the zip file
+      anaible.builtin.unarchive:
+        src: /tmp/web.zip
+        dest: /usr/share/nginx/html
+
+      
