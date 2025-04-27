@@ -85,6 +85,6 @@
         state: installed
 
     - name: loading schema 
-      ansible:builtin.command: mongo --host MONGODB-SERVER-IPADDRESS < /app/schema/catalogue.js
+      ansible:builtin.command: mongo --host 172.31.90.95 < /app/schema/catalogue.js
     
 
