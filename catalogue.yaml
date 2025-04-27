@@ -38,6 +38,9 @@
       ansible.builtin.debug:
         msg: "{{directory}}"
       
+    - name: print  the output of directory status.
+      ansible.builtin.debug:
+        msg: "{{directory.stat.exists}}"
 
     - name: create /app directory
       ansible.builtin.file:
