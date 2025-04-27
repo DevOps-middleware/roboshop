@@ -1,90 +1,17 @@
-- name: this play book is to install catalogue and run catalogue service.
+- name: this playbook is used to install catalogue
   hosts: catalogue
   become: yes
 
-  tasks:
-    - name: installing nodejs script.
-      ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-    - name: installing nodejs
+  tasks:
+    - name: run nodejs script to install setup nodejs reop
+      ansible.builtin.command: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+    - name: installing nodejs 
       ansible.builtin.yum:
         name: nodejs
         state: installed
-    
-    - name: checking roboshop user preseent or not
+
+    - name: creating a roboshop user
       ansible.builtin.shell: id roboshop
-      register: out
-      ignore_errors: true
-    
-    - name: print the output of roboshop user present or not
-      ansible.builtin.debug: 
-        msg: "{{out}}"
-
-    - name: print he exit status of user roboshop
-      ansible.builtin.debug:
-        msg: "{{out.rc}}"
-
-    - name: create a roboshop user
-      ansible.builtin.user:
-        name: roboshop
-      when: out.rc != 0
       
-    - name: to check if /app diretory present or not.
-      ansible.builtin.stat:
-        path: /app
-      register: directory
-
-    - name: print  the output of directory status.
-      ansible.builtin.debug:
-        msg: "{{directory}}"
-      
-    - name: print  the output of directory status.
-      ansible.builtin.debug:
-        msg: "{{directory.stat.exists}}"
-
-    - name: create /app directory
-      ansible.builtin.file:
-        path: /app
-        state: directory
-      when: directory.stat.exists == False
-
-
-    - name: downlaod the application code from s3 bucket and keep in /tmp directory
-      ansible.builtin.get_url:
-        url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
-        dest: /tmp
-   
-    - name: unzip catalogue.zip in /app directory.
-      ansible.builtin.unarchive:
-        src: /tmp/catalogue.zip
-        dest: /app
-        remote_src: yes
-      
-    - name: install npm install
-      ansible.builtin.command: npm install
-      args:
-        chdir: /app 
-
-    - name: create a symtectl service
-      ansible.builtin.copy:
-        src: catalogue.service
-        dest: /etc/systemd/system
-
-    - name: systemctl daemon-reload
-      ansible.builtin.systemd_service:
-        daemon_reload: true
-
-    - name: insatlling mongodb client
-      ansible.builtin.copy:
-        src: mongodb.repo
-        dest: /etc/yum.repos.d/mongo.repo
-
-    - name: installing mongodb-shell
-      ansible.builtin.yum:
-        name: mongodb-org-shell
-        state: installed
-
-    - name: loading schema 
-      ansible.builtin.shell: mongo --host 172.31.90.95 </app/schema/catalogue.js
-    
-
