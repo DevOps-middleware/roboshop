@@ -46,6 +46,8 @@
       ansible.builtin.file:
         path: /app
         state: directory
+      when: directory.stat.exists == False
+
 
     - name: downlaod the application code from s3 bucket and keep in /tmp directory
       ansible.builtin.get_url:
