@@ -39,9 +39,9 @@
         url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
         dest: /tmp
    
-    - name: unzip catalogu.zip in /app directory.
+    - name: unzip catalogue.zip in /app directory.
       ansible.builtin.unarchive:
         src: /tmp/catalina.zip
         dest: /app
-      remote_src: yes
+        remote_src: yes
       
