@@ -81,7 +81,7 @@
 
     - name: installing mongodb-shell
       ansible.builtin.yum:
-        name: mongobb-shell-org
+        name: mongodb-shell-org
         state: installed
     
 
