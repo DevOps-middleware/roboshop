@@ -74,3 +74,8 @@
       ansible.builtin.systemd_service:
         daemon_reload: true
 
+    - name: insatlling mongodb client
+      ansible:builtin.copy:
+        src: mongodb.repo
+        dest: /etc/yum.repos.d/mongo.repo
+        
