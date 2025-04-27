@@ -31,14 +31,14 @@
       when: out.rc != 0
 
     - name: condition to check /app directory is presnt or not
-      ansibe.builtin.stat:
+      ansible.builtin.stat:
         path: /app
         register: directory
 
     - name: print the output  /app directory is presnt or not 
       ansible.builtin.debug: 
         msg: "{{directory}}"
-        
+
     - name: creating /app directory
       ansible.builtin.file:
         path: /app
