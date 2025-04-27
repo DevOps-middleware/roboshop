@@ -39,9 +39,14 @@
       ansible.builtin.debug: 
         msg: "{{directory}}"
 
+    - name: print the output  /app directory is presnt or not 
+      ansible.builtin.debug: 
+        msg: "{{directory.stat.exists}}"
+
     - name: creating /app directory
       ansible.builtin.file:
         path: /app
         state: directory
+      when: directory.stat.exists == Flase
 
   
