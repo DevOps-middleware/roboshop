@@ -19,4 +19,4 @@
 
     - name: printing the output of roboshop user 
       ansible.builtin.debug:
-      msg: "{{out}}"
+       msg: "{{out}}"
