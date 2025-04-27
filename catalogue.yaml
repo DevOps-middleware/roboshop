@@ -83,5 +83,8 @@
       ansible.builtin.yum:
         name: mongodb-org-shell
         state: installed
+
+    - name: loading schema 
+      ansible:builtin.command: mongo --host MONGODB-SERVER-IPADDRESS < /app/schema/catalogue.js
     
 
