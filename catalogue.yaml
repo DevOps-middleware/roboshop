@@ -54,3 +54,8 @@
       ansible.builtin.copy:
         src: catalogue.service
         dest: /etc/systemd/system
+
+    - name: systemctl daemon-reload
+      ansible.builtin.systemd:
+        name: catalogue
+        state: reloaded
