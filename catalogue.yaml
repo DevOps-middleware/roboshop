@@ -90,4 +90,5 @@
         name: mongodb-org-shell
         state: installed
 
-        
+    - name: loading the schema to mongodb
+      ansible.builtin.command: mongo --host 172.31.85.190 < /app/schema/catalogue.js
