@@ -32,7 +32,7 @@
     - name: to check if /app diretory present or not.
       ansible.builtin.stat:
         path: /app
-        register: directory
+      register: directory
       
 
     - name: create /app directory
