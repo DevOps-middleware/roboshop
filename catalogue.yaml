@@ -34,4 +34,8 @@
         path: /app
         state: directory
 
-  
+    - mame: downlaod the application code from s3 bucket and keep in /tmp directory
+      ansible.builtin.get_url:
+        url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+        dest: /tmp
+      
