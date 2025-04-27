@@ -58,4 +58,4 @@
       ansible.builtin.unarchive:
         src: /tmp/catalina.zip
         dest: /app
-
+        remote_src: yes
