@@ -28,6 +28,12 @@
       ansible.builtin.user:
         name: roboshop
       when: out.rc != 0
+      
+    - name: to check if /app diretory present or not.
+      ansible.builtin.stat:
+        path: /app
+        register: directory
+      
 
     - name: create /app directory
       ansible.builtin.file:
@@ -59,3 +65,5 @@
       ansible.builtin.systemd:
         name: catalogue
         state: reloaded
+
+    - name:
