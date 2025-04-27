@@ -24,7 +24,14 @@
       ansible.builtin.debug:
         msg: "{{out.rc}}"
 
-    - name: craete a roboshop user
+    - name: create a roboshop user
       ansible.builtin.user:
         name: roboshop
       when: out.rc != 0
+
+    - name: create /app directory
+      ansible.builtin.file:
+        path: /app
+        state: directory
+
+  
