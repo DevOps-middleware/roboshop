@@ -5,7 +5,6 @@
   tasks:
     - name: copying mongobd repo file from ansible sevver to mongodb server 
       ansible.builtin.copy:
-        src: mongo.reop
+        src: mongo.repo
         dest: /etc/yum.repos.d/
 
-        
