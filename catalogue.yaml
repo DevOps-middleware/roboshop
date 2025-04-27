@@ -13,4 +13,9 @@
     
     - name: create roboshop user 
       ansible.builtin.shell: id roboshop
-
+      register: out
+      igonore_erros: true
+    
+    - name: print the output of roboshop user present or not
+      ansible.builtin.debug: 
+        msg: "{{out}}"
