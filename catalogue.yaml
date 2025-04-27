@@ -11,7 +11,7 @@
         name: nodejs
         state: installed
     
-    - name: create roboshop user 
+    - name: checking roboshop user preseent or not
       ansible.builtin.shell: id roboshop
       register: out
       ignore_errors: true
@@ -20,6 +20,11 @@
       ansible.builtin.debug: 
         msg: "{{out}}"
 
-    - name : print he exit status of user roboshop
+    - name: print he exit status of user roboshop
       ansible.builtin.debug:
         msg: "{{out.rc}}"
+
+    - name: craete a roboshop user
+      ansible.builtin.user:
+        name: roboshop
+      when: out.rc != 0
