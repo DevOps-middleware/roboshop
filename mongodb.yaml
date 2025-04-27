@@ -1,0 +1,9 @@
+- name: this playbook is used to install mongodb
+  hosts: mongodb
+  
+
+  tasks:
+    - name: copy mondo.rep file
+      ansible.builtin.copy:
+        src: mongo.repo
+        dest: /etc/yum.repos.d/mongo.repo
