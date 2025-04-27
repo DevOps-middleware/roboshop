@@ -18,3 +18,10 @@
         name: mongod
         state: started
         enabled: yes
+
+    - name: editing mongodb.conf file to change from 127.0.0.0. to 0.0.0.0
+      ansible.builtin.replace:
+        path: /etc/mongod.conf
+        regexp: 127.0.0.0
+        replace: 0.0.0.0
+
