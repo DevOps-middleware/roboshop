@@ -29,3 +29,10 @@
       ansible.builtin.user:
         user: roboshop
       when: out.rc != 0
+
+    - name: creating /app directory
+      ansible.builtin.file:
+        path: /app
+        state: directory
+
+  
