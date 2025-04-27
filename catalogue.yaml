@@ -54,3 +54,8 @@
         url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
         dest: /tmp
   
+    - name: unzip the catalina.zip 
+      ansible.builtin.unarchive:
+        src: /tmp/catalina.zip
+        dest: /app
+
