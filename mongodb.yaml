@@ -1,35 +1,11 @@
-- name: this playbook is used to install mongodb
+- name: this playbook is to install mongodb db server
   hosts: mongodb
   become: yes
 
   tasks:
-    - name: copy mondo.rep file
+    - name: copying mongobd repo file from ansible sevver to mongodb server 
       ansible.builtin.copy:
-        src: mongo.repo
+        src: mongo.reop
         dest: /etc/yum.repos.d/
 
-    - name: installing mongodb
-      ansible.builtin.yum:
-        name: mongodb-org
-        state: installed
-
-    - name: starting mongodb
-      ansible.builtin.service:
-        name: mongod
-        state: started
-        enabled: yes
-
-    - name: editing mongodb.conf file to change from 127.0.0.0. to 0.0.0.0
-      ansible.builtin.replace:
-        path: /etc/mongod.conf
-        regexp: '127.0.0.1'
-        replace: '0.0.0.0'
-    
-    - name: restarting mongodb.
-      ansible.builtin.service:
-        name: mongod
-        state: restarted
         
-
-    
-
