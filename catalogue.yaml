@@ -56,6 +56,6 @@
   
     - name: unzip the catalina.zip 
       ansible.builtin.unarchive:
-        src: /tmp/catalina.zip
+        src: /tmp/catalogue.zip
         dest: /app
         remote_src: yes
