@@ -33,6 +33,10 @@
       ansible.builtin.stat:
         path: /app
       register: directory
+
+    - name: print  the output of directory status.
+      ansible.builtin.debug:
+        msg: "{{directrory}}"
       
 
     - name: create /app directory
