@@ -29,4 +29,9 @@
         src: /tmp/web.zip
         dest: /usr/share/nginx/html
         remote_src: yes
+
+    - name: copy the nginx.conf file
+      anaible.builtin.copy:
+        src: roboshop.conf
+        dest: /etc/nginx/default.d/
       
