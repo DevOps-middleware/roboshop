@@ -1,6 +1,6 @@
 - name: this playbook is used to install mongodb
   hosts: mongodb
-  
+  become: yes
 
   tasks:
     - name: copy mondo.rep file
