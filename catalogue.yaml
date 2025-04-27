@@ -11,4 +11,6 @@
         name: nodejs
         state: installed
     
-    
+    - name: create roboshop user 
+      ansible.builtin.shell: id roboshop
+
