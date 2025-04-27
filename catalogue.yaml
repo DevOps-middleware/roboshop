@@ -12,7 +12,7 @@
         state: installed
     
     - name: create roboshop user 
-      ansible.builtin.shell: id roboshop
+      ansible.builtin.command: id roboshop
       register: out
       ignore_erros: true
     
