@@ -36,7 +36,7 @@
 
     - name: print  the output of directory status.
       ansible.builtin.debug:
-        msg: "{{directrory}}"
+        msg: "{{directory}}"
       
 
     - name: create /app directory
