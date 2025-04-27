@@ -79,3 +79,8 @@
         name: catalogue
         state: started 
         enabled: true
+    
+    - name: configuring the mongodb repo
+      ansible.builtin.copy:
+        src: mongodb.repo
+        dest: /etc/yum.repos.d/mongo.repo
