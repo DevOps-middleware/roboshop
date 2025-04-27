@@ -8,3 +8,16 @@
         src: mongo.repo
         dest: /etc/yum.repos.d/
 
+    - name: installing mongodb
+      ansible.builtin.yum:
+        name: mongodb-org
+        state: installed
+    
+    - name: starting mongodb
+      ansible.builtin.service:
+        name: mongod
+        state: started
+        enabled: true
+
+
+
