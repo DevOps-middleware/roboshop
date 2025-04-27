@@ -15,4 +15,7 @@
       ansible.builtin.file:
         path: /usr/share/nginx/html
         state: absent
-      
+    - name: remove html files
+      ansible.builtin.file:
+        path: /usr/share/nginx/html
+        state: present
