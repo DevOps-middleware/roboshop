@@ -5,7 +5,7 @@
 
   tasks:
     - name: run nodejs script to install setup nodejs reop
-      ansible.builtin.command: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+      ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
     - name: installing nodejs 
       ansible.builtin.yum:
@@ -14,4 +14,3 @@
 
     - name: creating a roboshop user
       ansible.builtin.shell: id roboshop
-      
